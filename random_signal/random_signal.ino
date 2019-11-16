@@ -25,7 +25,7 @@ void loop() {
   // put your main code here, to run repeatedly:
 
   // displayTest();
-  int randomNumber = random(1,9);
+  int randomNumber = random(1,7);
   displayLED();
   countdown(randomNumber);
   clearLED();
