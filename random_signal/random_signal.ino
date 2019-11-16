@@ -5,7 +5,10 @@ int d=11;
 int e=10; 
 int f=8; 
 int g=9; 
-int dp=4; 
+int dp=4;
+
+int randomNumber;
+int randomMax=7;
 
 void setup() {
   // put your setup code here, to run once:
@@ -18,19 +21,23 @@ void setup() {
   // 1-digit 7-segment display
   int i;
   for(i=4;i<=11;i++)
-    pinMode(i,OUTPUT);
+    pinMode(i, OUTPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
   // displayTest();
-  int randomNumber = random(1,7);
+
+  // turn on for random duration
   displayLED();
+  randomNumber = random(1, randomMax);
   countdown(randomNumber);
+
+  // turn off for random duration
   clearLED();
-  clearDisplay();
-  delay(1000);
+  randomNumber = random(1, randomMax);
+  countdown(randomNumber);  
 }
 
 void displayLED() {
