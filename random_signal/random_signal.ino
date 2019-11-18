@@ -7,6 +7,8 @@ int f=8;
 int g=9; 
 int dp=4;
 
+int relayOutputPin=7;
+
 int randomNumber;
 int randomMax=7;
 
@@ -14,14 +16,20 @@ void setup() {
   // put your setup code here, to run once:
   // Random number seed
   randomSeed(analogRead(0));
-  
+/*  
   // LED
   pinMode(LED_BUILTIN, OUTPUT);
+*/
 
+  // Relay output
+  pinMode(relayOutputPin, OUTPUT);
+  
+/*
   // 1-digit 7-segment display
   int i;
   for(i=4;i<=11;i++)
     pinMode(i, OUTPUT);
+*/
 }
 
 void loop() {
@@ -42,19 +50,19 @@ void loop() {
 
 void displayLED() {
   // turn on LED
-  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(relayOutputPin, HIGH);
 }
 
 void clearLED() {
   // turn off LED
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(relayOutputPin, LOW);
 }
 
 void countdown(int number) {
   for(int counter=number; counter>0; counter--) {
-    displayNumber(counter);
+    //displayNumber(counter);
     delay(1000);
-    clearDisplay();
+    //clearDisplay();
   }
 }
 
